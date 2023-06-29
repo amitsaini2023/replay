@@ -4,3 +4,4 @@ json
 urllib3
 json
 PyMovieDb 
+gunicorn
