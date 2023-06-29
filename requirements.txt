@@ -1,3 +1,4 @@
+flask
 PyMovieDb
 urllib3
 gunicorn
