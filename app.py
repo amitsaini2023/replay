@@ -13,9 +13,12 @@ series_data=series.converted_data
 
 @app.route("/play/<imdb>/<name>")
 def play(imdb,name,var_data=[]):
-    play=apis.myplayer(imdb)
     var_data=movies_data
-    return render_template('play.html',title=name,play=play,md=var_data)
+    play=apis.myplayer(imdb)
+    if(play):    
+        return render_template('play.html',title=name,play=play,md=var_data)
+    else:
+        return render_template('error.html')
 
 @app.route("/")
 @app.route("/home")
