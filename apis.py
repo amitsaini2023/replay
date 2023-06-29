@@ -159,7 +159,11 @@ def myplayer(value):
 
     #######2#########
     language_option=fetch_language(playlist_id,playlist_pass) ###list of dict###
-    language_id=((language_option[0])['file'])[1:]
+    try:
+        language_id = (language_option[0]['file'])[1:]
+    except TypeError:
+        language_id = (language_option[1]['file'])[1:]
+    
  
     #######3#########
     play_url=fetch_url(language_id,playlist_pass)
@@ -172,7 +176,7 @@ def myplayer(value):
     # return result_list
     return play
 
-# print(myplayer('tt12844910'))
+
 
 
 
