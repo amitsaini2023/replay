@@ -152,8 +152,8 @@ def myplayer(value):
     ######0#########
     imdb=f'{value}'
 
-    ######1##########
-     try:
+    
+    try:
     ######1##########
         playlist=fetch_playlist(imdb)
         playlist_id=playlist['playlist_id']
