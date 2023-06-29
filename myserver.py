@@ -2,7 +2,6 @@ from flask import Flask,render_template,url_for,request
 import movies,series
 import mp_function as mf
 import apis
-import schedule
 import time
 
 app = Flask(__name__)
