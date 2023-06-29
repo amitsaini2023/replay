@@ -153,29 +153,37 @@ def myplayer(value):
     imdb=f'{value}'
 
     ######1##########
-    playlist=fetch_playlist(imdb)
-    playlist_id=playlist['playlist_id']
-    playlist_pass=playlist['playlist_pass']
+     try:
+    ######1##########
+        playlist=fetch_playlist(imdb)
+        playlist_id=playlist['playlist_id']
+        playlist_pass=playlist['playlist_pass']
 
-    #######2#########
-    language_option=fetch_language(playlist_id,playlist_pass) ###list of dict###
+        #######2#########
+        language_option=fetch_language(playlist_id,playlist_pass) ###list of dict###
+    except Exception:
+        return 0
     try:
-        language_id = (language_option[0]['file'])[1:]
-    except TypeError:
-        language_id = (language_option[1]['file'])[1:]
-    
- 
-    #######3#########
-    play_url=fetch_url(language_id,playlist_pass)
-    val=convert_url(play_url)
-    value=readyurl(val)
-    # encoded_url = encode_url(value)
-    # download=encoded_url
-    play=changequality(value,'720/index')
-    # result_list=[play,download]
-    # return result_list
-    return play
+        try:
+            language_id = (language_option[0]['file'])[1:]
+        except TypeError:
+            language_id = (language_option[1]['file'])[1:]
+    except Exception:
+        language_id = '0'
 
+    if (language_id):
+        #######3#########
+        play_url=fetch_url(language_id,playlist_pass)
+        val=convert_url(play_url)
+        value=readyurl(val)
+        # encoded_url = encode_url(value)
+        # download=encoded_url
+        play=changequality(value,'720/index')
+        # result_list=[play,download]
+        # return result_list
+        return play
+    else:
+        return 0
 
 
 
