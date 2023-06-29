@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Copy Text Field Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      margin: 0;
+      padding: 20px;
+
+    }
+    
+    .container {
+      width:90vw;
+      height:70vh;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .copy-button,
+    .downloader-button {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 35px;
+      background-color: #009bcf;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .copy-button:hover,
+    .downloader-button:hover {
+      background-color: #45a049;
+    }
+    
+    .text-field {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 50px;
+      font-weight: bold;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .downloader-container {
+      margin-top: 50px;
+      text-align: center;
+    }
+    
+    .downloader-text {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .copy-button,
+      .downloader-button {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      
+      .text-field {
+        font-size: 16px;
+      }
+      
+      .downloader-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+  <script>
+    function copyText() {
+      var textField = document.getElementById("myTextField");
+      textField.select();
+      document.execCommand("copy");
+      alert("Text copied to clipboard!");
+    }
+    
+    function redirectToDownloader() {
+      window.location.href = "";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="myTextField" class="text-field" value="Hello, world!" readonly>
+    <button class="copy-button" onclick="copyText()">Copy</button>
+  <br>
+  <br>
+    <div class="downloader-container">
+      <p class="downloader-text">Go to Below Site and Paste</p>
+      <button class="downloader-button" onclick="redirectToDownloader()">Downloader site</button>
+    </div>
+  </div>
+</body>
+</html>

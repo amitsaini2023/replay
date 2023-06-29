@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='search.css')}}">
+    <title>Search</title>
+</head>
+<body>
+    <div class="main" >
+        <form action="/results" method="POST">
+            <input type="text" name="search" placeholder="Search anything you want??">
+            <button><img src="../static/search.png" alt=""></button>
+        </form>
+    </div>
+    <div class="other">
+        <div class="cat">
+            <a href="genre/romance">Romance</a>
+        </div>
+        <div class="cat">
+            <a href="genre/horror">Horror</a>
+        </div>
+        <div class="cat">
+            <a href="genre/thriller">Thriller</a>
+        </div>
+        <div class="cat">
+            <a href="genre/sci-fi">Sci-Fi</a>
+        </div>
+        <div class="cat">
+            <a href="genre/comedy">Comedy</a>
+        </div>
+        <div class="cat">
+            <a href="genre/pyscological">Pyscological</a>
+        </div>
+        <div class="cat">
+            <a href="genre/cartoon">Cartoon</a>
+        </div>
+        <div class="cat">
+            <a href="genre/action">Action</a>
+        </div>
+        <div class="cat">
+            <a href="genre/adventure">Adventure</a>
+        </div>
+        <div class="cat">
+            <a href="genre/drama">Drama</a>
+        </div>
+
+</body>
+</html>

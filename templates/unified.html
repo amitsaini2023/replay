@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='unified.css')}}">
+</head>
+<body>
+    <div class="main">
+        <div class="mc" id="main_one">
+            {{value}}
+        </div>
+        <div class="mc" id="main_two">
+            {% for i in md %}
+                    <a href="/play/{{i[0]}}/{{i[1]}}">
+                        <div class="mcc" id="imageContainer{{loop.index}}">
+                            <div class="mccc">
+                                <img src="{{i[2]}}" data-src="{{i[2]}}" alt="poster">
+                            </div>
+                            <div class="mccc_title">{{i[1]}}</div>
+                        </div>
+                    </a>
+            {% endfor %}
+        </div>
+        <div class="mc home_search" id="main_three">
+            <img src="{{ url_for('static', filename='search.png') }}" alt="">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var imageContainers = document.querySelectorAll('.mcc');
+          var currentIndex = 0;
+      
+          function loadNextImage() {
+            if (currentIndex < imageContainers.length) {
+              var container = imageContainers[currentIndex];
+              var img = container.querySelector('img');
+              var src = img.getAttribute('data-src');
+              img.setAttribute('src', src);
+              currentIndex++;
+              loadNextImage(); // Load the next image
+            }
+          }
+      
+          loadNextImage(); // Start loading the images sequentially
+        });
+      </script>
+      
+</body>
+</html>

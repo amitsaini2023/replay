@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <title>Replay-Download & Play Anything</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    
+    <div class="top">
+        <div class="tc">
+            <img src="{{ url_for('static', filename='replay.png')}}" alt="">
+        </div>
+        <div class="tc" id="top_two">
+            <img src="{{ url_for('static', filename='contribution.png')}}" alt="">
+        </div>
+    </div>
+    <div class="middle">
+        <div class="mc slider">
+            {% for i in md %}
+                    <a href="/play/{{i[0]}}/{{i[1]}}">
+                    <div id="mc_one" class="slide">
+                            <div id="mc_one_one">
+                                <img src="{{i[2]}}" alt="">
+                            </div>
+                            <div id="mc_one_two">
+                                <div id="mc_one_two_one">{{i[1]}}</div>
+                                <div id="mc_one_two_two">Date:0:0:0</div>
+                            </div>   
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="bc">
+          
+            <div class="bcc" id="bc_two">
+                <ul>
+                    <li><a href="movies">Movies</a></li>
+                    <li><a href="series">Series</a></li>
+                    <li><a href="animes">Animes</a></li>
+                    <li><a href="search">Search</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

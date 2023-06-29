@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='unified.css')}}">
+</head>
+<body>
+    <div class="main">
+        <div class="mc" id="main_one">
+            {{ value }}
+        </div>
+        <div class="mc" id="main_two">
+            {% for i in myl %}
+                {% if i[6] == 1 and i[0].startswith(value) %}
+                    <a href="/play/{{i[0]}}">
+                        <div class="mcc">
+                            <div class="mccc">
+                                <img src="{{ i[1] }}" alt="">
+                            </div>
+                            <div class="mccc_title">{{ i[0] }}</div>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="mc home_search" id="main_three">
+            <img src="{{ url_for('static', filename='search.png') }}" alt="">
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
