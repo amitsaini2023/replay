@@ -1,6 +1,3 @@
-requests==2.31.0
-json
+PyMovieDb
 urllib3
-json
-PyMovieDb 
 gunicorn
