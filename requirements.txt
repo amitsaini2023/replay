@@ -1,5 +1,4 @@
-requests
-re
+requests==2.31.0
 json
 urllib3
 json
