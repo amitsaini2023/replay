@@ -75,4 +75,7 @@ def search():
 def contribution():
     return render_template('contribution.html')
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml', mimetype='application/xml')
 
